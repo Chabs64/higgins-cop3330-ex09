@@ -14,6 +14,7 @@ Display the number of gallons needed to paint the ceiling as a whole number.
 
 Example Output
 You will need to purchase 2 gallons of paint to cover 360 square feet.
+
 Remember, you can’t buy a partial gallon of paint. You must
 round up to the next whole gallon.
 
@@ -22,10 +23,30 @@ Use a constant to hold the conversion rate.
 Ensure that you round up to the next whole number.
  */
 
-public class App 
+import java.util.Scanner;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Scanner in = new Scanner(System.in);
+
+        int length = in.nextInt();
+        int width = in.nextInt();
+
+        int roomSize = length*width;
+
+        int gallon = 350;
+        int gallons = 1;
+
+        while(roomSize-gallon > 0)
+        {
+            roomSize = roomSize-gallon;
+
+            gallons += 1;
+        }
+
+
+        System.out.println("You will need to purchase " + gallons + " gallons of paint to cover " + length*width + " square feet.");
     }
 }
